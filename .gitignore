@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build
+.next/
+out/
+
+# Environment — NEVER commit
+.env
+.env.local
+.env.development
+.env.staging
+.env.production
+.env*.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug
+npm-debug.log*
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

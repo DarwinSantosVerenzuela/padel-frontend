@@ -1,0 +1,84 @@
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  background: var(--bg-card);
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.06);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background: rgba(26, 26, 26, 0.9);
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 12px 4px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text-tertiary);
+  transition: color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.item:hover {
+  color: var(--text-secondary);
+}
+
+.active {
+  color: var(--green-primary);
+}
+
+.iconWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  transition: transform var(--transition-spring);
+}
+
+.active .icon {
+  transform: scale(1.05);
+}
+
+.dot {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--green-accent);
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}

@@ -1,15 +1,17 @@
 import type { Metadata, Viewport } from "next";
+import { AuthProvider } from "@/lib/auth/AuthProvider";
+import { I18nProvider } from "@/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PadelApp — Tu red social de pádel",
+  title: "Tak — El sonido del pádel",
   description: "Encuentra jugadores, reserva canchas, compite en rankings y conecta con la comunidad de pádel más grande del mundo.",
   manifest: "/manifest.json",
   keywords: ["padel", "pádel", "deportes", "matchmaking", "reservas", "canchas", "ranking"],
-  authors: [{ name: "PadelApp" }],
+  authors: [{ name: "Tak" }],
   openGraph: {
-    title: "PadelApp",
-    description: "La red social de pádel #1",
+    title: "Tak",
+    description: "El sonido del pádel 🏓",
     type: "website",
   },
 };
@@ -32,7 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body>{children}</body>
+      <body>
+        <AuthProvider>
+          <I18nProvider>{children}</I18nProvider>
+        </AuthProvider>
+      </body>
     </html>
   );
 }
+

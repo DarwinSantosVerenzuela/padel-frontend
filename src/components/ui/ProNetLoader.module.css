@@ -1,0 +1,36 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+  gap: 12px;
+}
+
+.fullPage {
+  min-height: 60dvh;
+}
+
+.logo {
+  animation: pronetSpin 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(0 0 14px rgba(48, 209, 88, 0.3));
+}
+
+.text {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  max-width: 240px;
+}
+
+@keyframes pronetSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.06); }
+  100% { transform: rotate(360deg) scale(1); }
+}

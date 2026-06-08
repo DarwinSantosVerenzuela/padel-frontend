@@ -4,21 +4,11 @@
   left: 0;
   right: 0;
   z-index: var(--z-sticky);
-  background: var(--bg-card);
-  border-bottom-left-radius: var(--radius-xl);
-  border-bottom-right-radius: var(--radius-xl);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+  background: rgba(28, 28, 30, 0.85);
+  border-bottom: 1px solid var(--border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
-
-@media (prefers-color-scheme: dark) {
-  .header {
-    background: rgba(26, 26, 26, 0.9);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-  }
-}
-
 .inner {
   display: flex;
   align-items: center;
@@ -27,8 +17,8 @@
   padding: 0 var(--space-lg);
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
-
 .logo {
   display: flex;
   align-items: center;
@@ -36,48 +26,151 @@
   text-decoration: none;
   color: var(--text-primary);
 }
-
 .logoIcon {
-  font-size: 24px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  border-radius: 7px;
+  font-size: 13px;
 }
-
 .logoText {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--green-dark);
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
 }
-
 .actions {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: 2px;
 }
-
+.userChip {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  margin-right: 4px;
+  white-space: nowrap;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .actionBtn {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  color: var(--green-primary);
-  text-decoration: none;
-  transition: background var(--transition-fast);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: color var(--transition-fast);
 }
-
-.actionBtn:hover {
-  background: var(--green-light);
-}
-
+.actionBtn:hover { color: var(--text-primary); }
 .notifDot {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--green-accent);
-  border: 2px solid var(--bg-card);
+  background: var(--accent);
+  border: 1.5px solid var(--bg-primary);
+}
+
+/* ── Search Overlay ── */
+.searchOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: rgba(28, 28, 30, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  height: var(--header-height);
+  padding: 0 var(--space-md);
+}
+.searchIcon {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+.searchInput {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+}
+.searchInput::placeholder { color: var(--text-tertiary); }
+.searchClose {
+  display: flex;
+  align-items: center;
+  color: var(--text-tertiary);
+  cursor: pointer;
+}
+
+.searchDropdown {
+  max-height: 320px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+}
+.searchResult {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 10px var(--space-md);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast);
+}
+.searchResult:hover { background: var(--bg-tertiary); }
+
+.searchAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+.searchAvatarEmoji {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.searchInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.searchName {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.searchHandle {
+  font-size: 11px;
+  color: var(--text-tertiary);
 }

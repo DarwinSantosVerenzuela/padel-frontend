@@ -1,7 +1,7 @@
 {
-  "name": "PadelApp",
-  "short_name": "PadelApp",
-  "description": "Tu red social de pádel — encuentra jugadores, reserva canchas y compite",
+  "name": "Tak",
+  "short_name": "Tak",
+  "description": "El sonido del pádel — encuentra takers, reserva canchas y compite",
   "start_url": "/feed",
   "display": "standalone",
   "background_color": "#FAFAFA",

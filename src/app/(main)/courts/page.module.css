@@ -1,0 +1,207 @@
+.courts { display: flex; flex-direction: column; gap: var(--space-md); }
+.heroSection { padding-top: var(--space-sm); }
+
+/* Search */
+.searchWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-tertiary);
+  pointer-events: none;
+  z-index: 1;
+}
+.searchInput {
+  width: 100%;
+  padding: 12px 14px 12px 38px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.searchInput::placeholder {
+  color: var(--text-tertiary);
+}
+.searchInput:focus {
+  border-color: var(--accent-muted);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+/* Filters */
+.filtersRow { display: flex; gap: var(--space-sm); overflow-x: auto; scrollbar-width: none; padding: 2px 0; }
+.filtersRow::-webkit-scrollbar { display: none; }
+.filterChip {
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+.filterChip:hover { color: var(--text-secondary); background: var(--bg-elevated); }
+.filterActive { background: var(--accent-dim); color: var(--accent); border-color: var(--accent-muted); }
+
+/* Map */
+.mapWrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  height: 260px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+.mapContainer { width: 100%; height: 100%; z-index: 0; }
+.mapLoading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  color: var(--text-tertiary);
+  font-size: var(--font-size-sm);
+  z-index: 1;
+}
+.locateBtn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+.locateBtn:hover { background: var(--bg-elevated); transform: scale(1.05); }
+
+/* Courts list */
+.courtsList { display: flex; flex-direction: column; gap: var(--space-sm); }
+.courtCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+.courtCard:hover { background: var(--bg-elevated); transform: translateY(-1px); }
+.courtCard:active { transform: scale(0.99); }
+.courtSelected { border-color: var(--accent) !important; background: var(--bg-elevated) !important; }
+
+.courtIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.courtInfo { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.courtRow { display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); }
+.courtName { font-size: var(--font-size-sm); font-weight: 600; color: var(--text-primary); }
+.courtPrice { font-size: var(--font-size-sm); font-weight: 700; color: var(--accent); white-space: nowrap; }
+.courtAddress { font-size: var(--font-size-xs); color: var(--text-tertiary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.courtMeta { display: flex; gap: var(--space-md); margin-top: 2px; align-items: center; }
+.courtRating { display: flex; align-items: center; gap: 3px; font-size: var(--font-size-xs); color: var(--orange); font-weight: 500; }
+.courtCourts { font-size: var(--font-size-xs); color: var(--text-tertiary); }
+.courtDistance { font-size: var(--font-size-xs); color: var(--blue); font-weight: 500; }
+.courtAvail { font-size: var(--font-size-xs); color: var(--accent); font-weight: 500; }
+.courtFull { font-size: var(--font-size-xs); color: var(--red); font-weight: 500; }
+
+.courtActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border);
+}
+.bookBtn { font-size: var(--font-size-xs); }
+.courtTags { font-size: var(--font-size-xs); color: var(--text-tertiary); }
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+}
+.emptyIcon {
+  font-size: 40px;
+  margin-bottom: var(--space-md);
+  animation: bounce 2s ease-in-out infinite;
+}
+.emptyTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.emptySubtitle {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  max-width: 260px;
+}
+
+.loadingLogo {
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--space-md);
+  animation: logoSpin 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(0 0 12px rgba(48, 209, 88, 0.3));
+}
+
+@keyframes logoSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Location badge on posts */
+.locationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  color: var(--blue);
+  background: rgba(10,132,255,0.08);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
